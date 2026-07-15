@@ -1052,6 +1052,13 @@ Foto profil: ${fotoLine(d)}
 4. Section yang tidak dipilih/ditandai "Tidak ditampilkan" tidak perlu dibuat.
 5. Pastikan struktur HTML semantik, aksesibel, dan ringan (tanpa dependency berat).
 6. WAJIB: tombol "Download CV (PDF)" harus memanggil window.print(), BUKAN link ke file .pdf yang tidak ada. Jangan pernah membuat href ke file PDF.
+6b. WAJIB: sebelum window.print() dijalankan, tampilkan dulu panel/modal hint singkat (bukan alert bawaan browser, buat elemen HTML sendiri yang serasi dengan desain) berisi teks persis ini:
+   Judul: "Sebelum menyimpan PDF"
+   Isi (2 poin bullet):
+   - Matikan "Headers and footers" — agar URL file dan tanggal tidak ikut tercetak.
+   - Aktifkan "Background graphics" — agar warna dan badge tampil utuh.
+   Lalu tombol "Lanjut cetak" yang memanggil window.print(), dan tombol "Batal" yang menutup panel.
+   Panel ini WAJIB punya class khusus dan disembunyikan di @media print (display:none) agar tidak ikut tercetak.
 7. WAJIB sertakan blok @media print yang membuat halaman ini tercetak rapi sebagai CV di kertas A4:
    - @page { size: A4; margin: 15mm; }
    - Sembunyikan (display:none) semua elemen non-konten: navigasi/header sticky, semua tombol termasuk tombol Download CV itu sendiri, footer navigasi, dan elemen dekoratif.
@@ -1060,8 +1067,11 @@ Foto profil: ${fotoLine(d)}
    - Cegah elemen terpotong antar halaman: gunakan break-inside: avoid pada setiap card/item pengalaman, pendidikan, portfolio, dan sertifikasi. Gunakan break-after: avoid pada semua heading.
    - Ubah layout multi-kolom/grid menjadi satu kolom penuh agar muat di lebar A4.
    - Tampilkan URL di samping tautan penting memakai a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 10pt; }
-   - Atur ukuran font cetak agar terbaca: body sekitar 11pt, heading proporsional.
-   - Target: seluruh CV muat rapi dalam 1-2 halaman A4.`;
+   - Atur ukuran font cetak agar terbaca namun ringkas: body 10pt, h1 sekitar 20pt, h2 sekitar 13pt, h3 sekitar 11pt.
+   - PADATKAN untuk cetak: kecilkan padding semua card menjadi maksimal 8pt, margin antar section maksimal 10pt, dan line-height sekitar 1.35. Hilangkan border-radius besar, shadow, dan elemen dekoratif (garis aksen, ikon emoji besar, ilustrasi) yang hanya memakan ruang.
+   - Buang semua whitespace kosong berlebih: jangan gunakan min-height, padding vertikal besar, atau spacer di versi cetak.
+   - Section hero saat dicetak cukup ringkas: nama, profesi, kontak, dan foto kecil dalam satu baris — jangan setinggi satu layar.
+   - TARGET WAJIB: seluruh CV muat dalam 1-2 halaman A4. Jika konten sedikit (misal hanya 1 pengalaman kerja), HARUS muat dalam 1 halaman. Padatkan sampai target ini tercapai.`;
   }
 
   /* ---------- kode brief + kirim ---------- */
