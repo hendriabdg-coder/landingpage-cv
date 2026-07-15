@@ -209,6 +209,37 @@
   .result{display:none;margin-top:26px}
   .result.show{display:block;animation:in .3s ease both}
   .result h3{font-size:clamp(22px,2.6vw,30px);margin-bottom:6px}
+  .pricing{padding:78px 0;background:var(--line-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .ptiers{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+  @media (max-width:760px){.ptiers{grid-template-columns:1fr}}
+  .tier{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;display:flex;flex-direction:column}
+  .tier.feat{border:1.5px solid var(--accent);position:relative}
+  .tier .tag{position:absolute;top:-10px;right:20px;background:var(--accent);color:#fff;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:20px}
+  .tier h3{font-family:"Fraunces",serif;font-size:21px;margin:0 0 4px}
+  .tier .sub{color:var(--ink-2);font-size:13.5px;margin:0 0 18px;min-height:38px}
+  .tier .price{font-family:"Fraunces",serif;font-size:36px;line-height:1;margin-bottom:2px}
+  .tier .price small{font-family:"Archivo",sans-serif;font-size:13px;color:var(--ink-2);font-weight:400}
+  .tier .note{font-size:12.5px;color:var(--ink-2);margin:6px 0 18px}
+  .tier ul{list-style:none;padding:0;margin:0 0 22px;font-size:14px;line-height:1.9}
+  .tier ul li{padding-left:22px;position:relative}
+  .tier ul li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
+  .tier ul li.no::before{content:"—";color:var(--ink-2)}
+  .tier .btn{margin-top:auto}
+  .plimit{
+    display:inline-flex;align-items:center;gap:9px;margin-top:16px;
+    background:#FEF6E7;border:1px solid var(--amber);border-radius:20px;
+    padding:7px 15px;font-size:13px;color:#8A5A00;
+  }
+  .plimit b{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.04em}
+  .proof{
+    margin-top:34px;padding:20px 22px;background:#fff;border:1px solid var(--line);
+    border-radius:var(--r);display:flex;align-items:center;justify-content:space-between;
+    gap:18px;flex-wrap:wrap;
+  }
+  .proof p{margin:0;font-size:14px;color:var(--ink-2)}
+  .proof p b{color:var(--ink)}
+  .pnote{margin-top:26px;font-size:13.5px;color:var(--ink-2);line-height:1.75;max-width:66ch}
+  .pnote b{color:var(--ink)}
   .refbox{
     display:flex;align-items:center;gap:12px;flex-wrap:wrap;
     background:var(--accent-soft);border:1px solid var(--accent);
@@ -271,7 +302,7 @@
       <p class="lead">Isi form intake di bawah — 9 langkah, mayoritas tinggal pilih. Di akhir, brief lengkapnya langsung terkirim ke tim kami — kami balas dengan penawaran dan contoh arah desain. Gratis, tanpa biaya di depan.</p>
       <div class="hero-cta">
         <a class="btn accent" href="#form">Mulai brief CV-ku</a>
-        <a class="btn ghost" href="#kenapa">Lihat cara kerjanya</a>
+        <a class="btn ghost" href="#harga">Lihat biaya</a>
       </div>
       <div class="hero-meta">
         <div><b>9</b><span>langkah isian</span></div>
@@ -310,6 +341,57 @@
       <div class="vcard"><div class="ic">◷</div><h3>Draft tersimpan otomatis</h3><p>Jawaban disimpan di browser kamu sendiri. Tutup tab, lanjut nanti, isian tetap ada.</p></div>
       <div class="vcard"><div class="ic">⤓</div><h3>Kirim sekali, kami yang kerjakan</h3><p>Brief terkirim otomatis ke tim kami. Kami generate, rapikan, deploy, lalu balas dengan link yang sudah jadi.</p></div>
     </div>
+  </div>
+</section>
+
+<section class="pricing" id="harga">
+  <div class="wrap">
+    <p class="eyebrow">Biaya</p>
+    <h2>Satu harga. Tidak ada biaya tersembunyi.</h2>
+    <p style="color:var(--ink-2);font-size:15px;max-width:62ch;margin-top:10px">Mengirim brief <b style="color:var(--ink)">gratis</b> dan tanpa kewajiban apa pun. Biaya di bawah baru berlaku kalau kamu setuju kami kerjakan.</p>
+    <span class="plimit">◷ <b>HARGA PERKENALAN</b> — berlaku untuk 10 klien pertama</span>
+
+    <div class="ptiers">
+      <div class="tier feat">
+        <span class="tag">Paling banyak dipilih</span>
+        <h3>Landing Page CV</h3>
+        <p class="sub">Halaman CV kamu, jadi dan online. Cukup kirim brief, sisanya kami.</p>
+        <div class="price">Rp 299.000 <small>/ sekali bayar</small></div>
+        <p class="note">Tanpa biaya bulanan. Tanpa langganan.</p>
+        <ul>
+          <li>Halaman siap pakai, sesuai brief kamu</li>
+          <li>Rapi di HP, tablet, dan laptop</li>
+          <li>Tombol simpan CV sebagai PDF</li>
+          <li>Online di alamat <b>nama-kamu.netlify.app</b></li>
+          <li>Selesai 2–3 hari kerja</li>
+          <li>2× revisi</li>
+        </ul>
+        <a class="btn accent" href="#form">Mulai brief CV-ku</a>
+      </div>
+
+      <div class="tier">
+        <h3>+ Domain Sendiri</h3>
+        <p class="sub">Alamat atas namamu sendiri, bukan menumpang. Untuk yang serius membangun personal brand.</p>
+        <div class="price">+ Rp 150.000 <small>/ sekali bayar</small></div>
+        <p class="note">Belum termasuk biaya domain (±Rp 150–200rb/tahun, dibeli atas namamu).</p>
+        <ul>
+          <li>Semua yang ada di paket utama</li>
+          <li>Online di <b>namakamu.com</b></li>
+          <li>Kami yang urus pengaturan teknisnya</li>
+          <li>Sertifikat keamanan (HTTPS) terpasang</li>
+          <li>Domain tetap milikmu sepenuhnya</li>
+        </ul>
+        <a class="btn ghost" href="#form">Mulai brief CV-ku</a>
+      </div>
+    </div>
+
+    <div class="proof" id="proofBox" hidden>
+      <p><b>Belum yakin hasilnya seperti apa?</b><br>Lihat contoh landing page CV yang sudah jadi — dibuat lewat form yang sama.</p>
+      <a class="btn ghost" id="proofLink" href="#" target="_blank" rel="noopener">Lihat contoh hasil →</a>
+    </div>
+
+    <p class="pnote"><b>Kenapa domainnya kamu yang beli?</b> Supaya alamat itu benar-benar milikmu — kalau suatu saat kamu pindah ke pihak lain, tidak ada yang tersandera. Kami hanya bantu memasangnya.<br>
+    <b>Pembayaran</b> setelah kami kirim penawaran dan kamu setuju. Bukan sekarang.</p>
   </div>
 </section>
 
@@ -626,6 +708,8 @@
   const CONFIG = {
     wa: '6282349462700',
     email: 'hendri@endrichtech.com',
+    // Isi URL contoh hasil di bawah ini. Kalau kosong, tombol "Lihat contoh hasil" otomatis disembunyikan.
+    contohUrl: '',
     emailjs: {
       publicKey: 'dFt1GMfZh55U3evtJ',
       serviceId: 'service_6elg9el',
@@ -635,6 +719,16 @@
   /* ========================= */
 
   try { if (window.emailjs) emailjs.init({ publicKey: CONFIG.emailjs.publicKey }); } catch (e) {}
+
+  /* tombol contoh hasil hanya muncul kalau CONFIG.contohUrl diisi */
+  (function () {
+    if (!CONFIG.contohUrl) return;
+    const box = document.getElementById('proofBox');
+    const link = document.getElementById('proofLink');
+    if (!box || !link) return;
+    link.href = CONFIG.contohUrl;
+    box.hidden = false;
+  })();
 
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
