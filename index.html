@@ -70,7 +70,8 @@
   :focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;border-radius:4px}
 
   /* ---------- hero ---------- */
-  .hero{padding:clamp(48px,7vw,96px) 0 clamp(40px,5vw,64px)}
+  .hero{padding:clamp(48px,7vw,96px) 0 clamp(40px,5vw,64px);position:relative;
+    background:radial-gradient(120% 90% at 88% -10%, rgba(42,62,234,.08), rgba(42,62,234,0) 55%)}
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,56px);align-items:center}
   .hero h1{font-size:clamp(38px,5.6vw,68px)}
   .hero h1 em{font-style:italic;color:var(--accent)}
@@ -103,7 +104,8 @@
   .value{padding:clamp(40px,5vw,72px) 0;border-top:1px solid var(--line)}
   .value h2{font-size:clamp(26px,3vw,36px);margin:10px 0 30px;max-width:22ch}
   .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-  .vcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+  .vcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;transition:transform .18s ease, box-shadow .18s ease}
+  .vcard:hover{transform:translateY(-3px);box-shadow:0 16px 34px -22px rgba(20,22,27,.26)}
   .vcard .ic{width:32px;height:32px;border-radius:8px;background:var(--accent-soft);color:var(--accent);
     display:grid;place-items:center;font-weight:700;margin-bottom:12px}
   .vcard h3{font-size:17px;margin-bottom:6px;font-family:"Archivo",sans-serif;font-weight:700;letter-spacing:0}
@@ -214,7 +216,8 @@
   .pricing{padding:78px 0;background:var(--line-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .ptiers{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
   @media (max-width:760px){.ptiers{grid-template-columns:1fr}}
-  .tier{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;display:flex;flex-direction:column}
+  .tier{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;display:flex;flex-direction:column;transition:transform .18s ease, box-shadow .18s ease}
+  .tier:hover{transform:translateY(-3px);box-shadow:0 18px 40px -26px rgba(20,22,27,.3)}
   .tier.feat{border:1.5px solid var(--accent);position:relative}
   .tier .tag{position:absolute;top:-10px;right:20px;background:var(--accent);color:#fff;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:20px}
   .tier h3{font-family:"Fraunces",serif;font-size:21px;margin:0 0 4px}
@@ -328,6 +331,10 @@
   .assure .item span{font-size:12.5px;color:var(--ink-2);line-height:1.35}
   @media (max-width:760px){.assure{grid-template-columns:1fr 1fr}}
   @media (max-width:440px){.assure{grid-template-columns:1fr}}
+
+  /* ---------- reveal on scroll ---------- */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
+  .reveal.reveal-in{opacity:1;transform:none}
 </style>
 </head>
 <body>
@@ -1366,6 +1373,26 @@ Foto profil: ${fotoLine(d)}
   });
 
   $('#yr').textContent = new Date().getFullYear();
+})();
+</script>
+<script>
+(function(){
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) return;
+  var sel = '.value .eyebrow, .value h2, .vcard, .showcase .eyebrow, .showcase h2, .showcase p.sub, .exhibit, .maker .eyebrow, .maker h2, .maker-card, .pricing .eyebrow, .pricing h2, .plimit, .tier, .assure, .formsec > .wrap > header';
+  var els = Array.prototype.slice.call(document.querySelectorAll(sel));
+  if (!els.length) return;
+  els.forEach(function(el){
+    el.classList.add('reveal');
+    var idx = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
+    el.style.transitionDelay = (Math.min(idx, 4) * 60) + 'ms';
+  });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){ e.target.classList.add('reveal-in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function(el){ io.observe(el); });
 })();
 </script>
 </body>
