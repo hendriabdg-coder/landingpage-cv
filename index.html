@@ -285,6 +285,38 @@
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important;scroll-behavior:auto}
   }
+
+  /* ---------- contoh hasil ---------- */
+  .showcase{padding:clamp(40px,5vw,72px) 0;border-top:1px solid var(--line)}
+  .showcase h2{font-size:clamp(26px,3vw,36px);margin:10px 0 8px;max-width:24ch}
+  .showcase p.sub{color:var(--ink-2);font-size:15px;max-width:60ch;margin-bottom:28px}
+  .exhibit{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,3vw,40px);align-items:center;
+    background:var(--card);border:1px solid var(--line);border-radius:16px;padding:clamp(16px,2.4vw,26px);
+    box-shadow:0 24px 50px -34px rgba(20,22,27,.4)}
+  .exhibit .thumb{display:block;border-radius:12px;overflow:hidden;border:1px solid var(--line);
+    transition:transform .2s ease, box-shadow .2s ease}
+  .exhibit .thumb img{width:100%;display:block}
+  .exhibit .thumb:hover{transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(42,62,234,.5)}
+  .exhibit .meta .tag{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+  .exhibit .meta h3{font-family:"Fraunces",serif;font-size:clamp(20px,2.2vw,26px);margin:8px 0 8px}
+  .exhibit .meta p{color:var(--ink-2);font-size:14.5px;margin-bottom:14px}
+  .exhibit .meta .u{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-2);margin-bottom:16px;word-break:break-all}
+  @media (max-width:760px){.exhibit{grid-template-columns:1fr;gap:18px}}
+
+  /* ---------- siapa di balik ini ---------- */
+  .maker{padding:clamp(40px,5vw,72px) 0;border-top:1px solid var(--line)}
+  .maker h2{font-size:clamp(26px,3vw,36px);margin:10px 0 26px;max-width:24ch}
+  .maker-card{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,3vw,32px);align-items:center;
+    background:var(--card);border:1px solid var(--line);border-radius:16px;padding:clamp(20px,3vw,34px)}
+  .maker-photo{width:clamp(88px,12vw,120px);height:clamp(88px,12vw,120px);border-radius:50%;
+    object-fit:cover;border:2px solid var(--accent)}
+  .maker-card .brand{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.01em}
+  .maker-card .role{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin:5px 0 13px}
+  .maker-card p{color:var(--ink-2);font-size:15px;max-width:62ch;margin-bottom:16px}
+  .maker-card p b{color:var(--ink)}
+  .maker-link{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px;color:var(--accent)}
+  .maker-link:hover{text-decoration:underline}
+  @media (max-width:620px){.maker-card{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -346,6 +378,44 @@
   </div>
 </section>
 
+<!-- CONTOH HASIL -->
+<section class="showcase" id="contoh">
+  <div class="wrap">
+    <p class="eyebrow">Contoh hasil</p>
+    <h2>Lihat hasil nyata, bukan sekadar janji.</h2>
+    <p class="sub">Ini salah satu landing page CV yang sudah jadi — dibangun dengan proses yang sama seperti yang akan kamu jalani lewat form di bawah.</p>
+    <div class="exhibit">
+      <a class="thumb" href="https://resume.endrichtech.com/" target="_blank" rel="noopener">
+        <img src="/contoh-resume.jpg" alt="Contoh landing page CV — Full-Stack Engineer" loading="lazy">
+      </a>
+      <div class="meta">
+        <span class="tag">CV Full-Stack Engineer</span>
+        <h3>Satu halaman, satu alamat, siap dibagikan.</h3>
+        <p>Profil, pengalaman, proyek, sampai skill dirangkai jadi satu halaman yang rapi di HP maupun laptop — lengkap dengan tombol simpan sebagai PDF.</p>
+        <div class="u">resume.endrichtech.com</div>
+        <a class="btn accent" href="https://resume.endrichtech.com/" target="_blank" rel="noopener">Lihat contoh hidup →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIAPA DI BALIK INI -->
+<section class="maker" id="pembuat">
+  <div class="wrap">
+    <p class="eyebrow">Siapa di balik ini</p>
+    <h2>Dikerjakan oleh orang yang benar-benar membangun produk.</h2>
+    <div class="maker-card">
+      <img class="maker-photo" src="/hendri.jpg" alt="Hendri Abd Ganing, founder Endrich Tech" loading="lazy">
+      <div>
+        <div class="brand">Endrich Tech</div>
+        <div class="role">Studio digital · Samarinda, Indonesia</div>
+        <p>CV Landing Studio dibuat oleh <b>Endrich Tech</b> — studio yang membangun produk SaaS nyata seperti <b>CoffeeShopHub</b>. Di baliknya ada <b>Hendri</b>, full-stack engineer yang menangani sendiri dari rancang database, bikin halaman, sampai deploy ke server. Jadi CV-mu dikerjakan oleh orang yang memang membangun produk sungguhan, bukan sekadar mengisi template.</p>
+        <a class="maker-link" href="https://endrichtech.com/" target="_blank" rel="noopener">Kunjungi endrichtech.com →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="pricing" id="harga">
   <div class="wrap">
     <p class="eyebrow">Biaya</p>
@@ -385,11 +455,6 @@
         </ul>
         <a class="btn ghost" href="#form">Mulai brief CV-ku</a>
       </div>
-    </div>
-
-    <div class="proof" id="proofBox" hidden>
-      <p><b>Belum yakin hasilnya seperti apa?</b><br>Lihat contoh landing page CV yang sudah jadi — dibuat lewat form yang sama.</p>
-      <a class="btn ghost" id="proofLink" href="#" target="_blank" rel="noopener">Lihat contoh hasil →</a>
     </div>
 
     <p class="pnote"><b>Kenapa domainnya kamu yang beli?</b> Supaya alamat itu benar-benar milikmu — kalau suatu saat kamu pindah ke pihak lain, tidak ada yang tersandera. Kami hanya bantu memasangnya.<br>
