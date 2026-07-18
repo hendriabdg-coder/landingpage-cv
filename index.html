@@ -317,6 +317,17 @@
   .maker-link{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:14px;color:var(--accent)}
   .maker-link:hover{text-decoration:underline}
   @media (max-width:620px){.maker-card{grid-template-columns:1fr}}
+
+  /* ---------- strip jaminan (risk-reversal) ---------- */
+  .assure{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px;
+    background:var(--accent-soft);border:1px solid rgba(42,62,234,.18);border-radius:14px;padding:18px 20px}
+  .assure .item{display:flex;gap:11px;align-items:flex-start}
+  .assure .ck{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;
+    display:grid;place-items:center;font-size:12px;font-weight:700;margin-top:1px}
+  .assure .item b{display:block;font-size:14px;font-weight:700;letter-spacing:-.01em;line-height:1.25;margin-bottom:2px}
+  .assure .item span{font-size:12.5px;color:var(--ink-2);line-height:1.35}
+  @media (max-width:760px){.assure{grid-template-columns:1fr 1fr}}
+  @media (max-width:440px){.assure{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -455,6 +466,13 @@
         </ul>
         <a class="btn ghost" href="#form">Mulai brief CV-ku</a>
       </div>
+    </div>
+
+    <div class="assure">
+      <div class="item"><span class="ck">✓</span><div><b>Brief gratis</b><span>Isi form tanpa kewajiban apa pun</span></div></div>
+      <div class="item"><span class="ck">✓</span><div><b>Bayar setelah setuju</b><span>Lihat penawaran dulu, bukan bayar di muka</span></div></div>
+      <div class="item"><span class="ck">✓</span><div><b>2× revisi termasuk</b><span>Sampai halamanmu terasa pas</span></div></div>
+      <div class="item"><span class="ck">✓</span><div><b>Tanpa biaya bulanan</b><span>Sekali bayar, tidak ada langganan</span></div></div>
     </div>
 
     <p class="pnote"><b>Kenapa domainnya kamu yang beli?</b> Supaya alamat itu benar-benar milikmu — kalau suatu saat kamu pindah ke pihak lain, tidak ada yang tersandera. Kami hanya bantu memasangnya.<br>
